@@ -20,7 +20,7 @@ public class RSA_raw
     BigInteger w = (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
     int result = 0;
     d=Alea.getPrimeNumber();
-    while(result!= -1){
+    while(result!= -1 || (d.gcd(w).compareTo(BigInteger.ONE))!=0){
       d=  Alea.getPrimeNumber() ;
       result =d.compareTo(w) ;
     }
@@ -30,6 +30,28 @@ public class RSA_raw
     keyPair = new KeyPair(publicKey,privatKey);
     }
 
+   /* static void fabriqueWithNorm(){
+      e = new BigInteger("65537");
+      BigInteger w;
+      while(true){
+        BigInteger p=Alea.getPrimeNumber();
+        BigInteger q=Alea.getPrimeNumber();
+        n = p.multiply(q);
+        w = (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
+      }
+
+      int result = 0;
+      d=Alea.getPrimeNumber();
+      while(result!= -1 || (d.gcd(w).compareTo(BigInteger.ONE))!=0){
+        d=  Alea.getPrimeNumber() ;
+        result =d.compareTo(w) ;
+      }
+      e = d.modInverse(w);
+      PublicKey publicKey = new PublicKey(n,e);
+      PrivatKey privatKey = new PrivatKey(d);
+      keyPair = new KeyPair(publicKey,privatKey);
+    }
+*/
   public static void main(String[] args)
   {  
     clair = new BigInteger("4b594f544f", 16);
