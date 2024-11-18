@@ -17,12 +17,7 @@ public class EPP
 
     static boolean est_probablement_premier(BigInteger n)
     {
-        /*
-          Modifiez cette fonction afin qu'elle retourne si oui
-          ou non l'entier n est un nombre premier, avec un taux 
-          d'erreur inférieur à 1/1000 000 000 000 000 000.
-        */  
-        return false;			     
+        return n.isProbablePrime(50);
     }
 }
 
